@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  connectionString: 'postgres://admin:password123@localhost:5432/webapp_db',
+  connectionString: process.env.DATABASE_URL || 'postgres://admin:password123@127.0.0.1:5432/webapp_db',
 });
 
 async function seed() {
