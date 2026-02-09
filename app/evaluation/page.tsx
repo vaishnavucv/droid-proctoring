@@ -222,6 +222,11 @@ export default function EvaluationPage() {
     const filteredChunks = chunks.filter(c => filterType === 'all' || c.type === filterType)
     const activeIndex = activeChunk ? filteredChunks.findIndex(c => c.name === activeChunk.name) : -1
 
+    // PiP: find the alternate chunk (if active is camera → find screen, and vice versa)
+    const pipChunk = activeChunk
+        ? chunks.find(c => c.type !== activeChunk.type)
+        : null
+
     return (
         <div className="h-screen bg-zinc-950 text-zinc-100 font-sans flex flex-col overflow-hidden">
             {/* ── Header ── */}
@@ -534,6 +539,45 @@ export default function EvaluationPage() {
                                                     </div>
                                                 </div>
                                             </div>
+                                        )}
+
+                                        {/* PiP: Small alternate source video in bottom-right corner */}
+                                        {pipChunk && selectedSession && (
+                                            <button
+                                                onClick={() => setActiveChunk(pipChunk)}
+                                                className="absolute bottom-4 right-4 z-10 group/pip cursor-pointer rounded-lg overflow-hidden border-2 border-zinc-600/50 hover:border-emerald-500/70 shadow-xl shadow-black/60 hover:shadow-emerald-900/30 transition-all duration-200 hover:scale-105"
+                                                title={`Switch to ${pipChunk.type === 'screen' ? 'Screen' : 'Camera'}`}
+                                            >
+                                                <div className="relative w-[200px] h-[150px]">
+                                                    <video
+                                                        key={pipChunk.name}
+                                                        src={`/api/proctoring/files/${selectedSession}/${pipChunk.name}`}
+                                                        muted
+                                                        autoPlay
+                                                        playsInline
+                                                        className="w-full h-full object-cover bg-black"
+                                                    />
+                                                    {/* PiP label badge */}
+                                                    <div className="absolute top-1.5 left-1.5 pointer-events-none">
+                                                        <Badge className="bg-black/70 backdrop-blur-md border-zinc-600/50 text-[8px] font-bold uppercase px-1.5 py-0.5 h-auto text-emerald-400 gap-1">
+                                                            {pipChunk.type === 'screen' ? (
+                                                                <><Monitor className="w-2.5 h-2.5" /> Screen</>
+                                                            ) : (
+                                                                <><Video className="w-2.5 h-2.5" /> Camera</>
+                                                            )}
+                                                        </Badge>
+                                                    </div>
+                                                    {/* Click-to-switch overlay on hover */}
+                                                    <div className="absolute inset-0 bg-black/0 group-hover/pip:bg-black/40 transition-colors duration-200 flex items-center justify-center">
+                                                        <div className="opacity-0 group-hover/pip:opacity-100 transition-opacity duration-200 flex flex-col items-center gap-1">
+                                                            <Play className="w-6 h-6 text-white fill-white drop-shadow-lg" />
+                                                            <span className="text-[8px] font-bold text-white uppercase tracking-wider drop-shadow-lg">
+                                                                Switch
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </button>
                                         )}
                                     </div>
 

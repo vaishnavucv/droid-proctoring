@@ -184,7 +184,7 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
                 </Link>
                 <div className="flex items-center gap-2">
                     <GraduationCap className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-bold tracking-tight">SaaS Academy</span>
+                    <span className="text-sm font-bold tracking-tight">Proctoring Academy</span>
                 </div>
                 <div className="w-20" />
             </header>
@@ -469,7 +469,7 @@ export default function CoursePage({ params }: { params: Promise<{ id: string }>
                         <Separator className="w-12" />
                     </div>
                     <p className="text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-semibold">
-                        Official Transcript System &copy; {new Date().getFullYear()} SaaS Academy
+                        Official Transcript System &copy; {new Date().getFullYear()} Proctoring Academy
                     </p>
                 </div>
             </footer>

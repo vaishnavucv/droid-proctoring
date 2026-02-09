@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Simple SaaS Login",
+  title: "Proctoring Academy",
   description: "Premium login page",
 };
 

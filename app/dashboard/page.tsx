@@ -107,7 +107,7 @@ export default function DashboardPage() {
                             <GraduationCap className="w-4 h-4 text-primary-foreground" />
                         </div>
                         <div>
-                            <h1 className="text-sm font-bold text-foreground tracking-tight leading-none">SaaS Academy</h1>
+                            <h1 className="text-sm font-bold text-foreground tracking-tight leading-none">Proctoring Academy</h1>
                             <p className="text-[10px] text-muted-foreground">Learning Platform</p>
                         </div>
                     </div>
@@ -226,7 +226,7 @@ export default function DashboardPage() {
             <footer className="py-8 border-t border-border bg-card/30">
                 <div className="container mx-auto max-w-6xl px-6 text-center">
                     <p className="text-xs text-muted-foreground font-medium tracking-widest">
-                        &copy; {new Date().getFullYear()} SaaS Academy &bull; Secure Environment
+                        &copy; {new Date().getFullYear()} Proctoring Academy &bull; Secure Environment
                     </p>
                 </div>
             </footer>

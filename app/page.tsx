@@ -69,7 +69,7 @@ export default function LoginPage() {
                         <GraduationCap className="w-7 h-7" />
                     </div>
                     <div>
-                        <h1 className="text-2xl font-bold tracking-tight text-foreground">SaaS Academy</h1>
+                        <h1 className="text-2xl font-bold tracking-tight text-foreground">Proctoring Academy</h1>
                         <p className="text-sm text-muted-foreground mt-1 flex items-center justify-center gap-1.5">
                             <Shield className="w-3 h-3" />
                             Secure Learning Platform
@@ -146,7 +146,7 @@ export default function LoginPage() {
                     <CardFooter className="flex flex-col items-center gap-3 pt-2 pb-6 px-6">
                         <Separator />
                         <p className="text-xs text-muted-foreground">
-                            SaaS Academy &copy; {new Date().getFullYear()}
+                            Proctoring Academy &copy; {new Date().getFullYear()}
                         </p>
                     </CardFooter>
                 </Card>
